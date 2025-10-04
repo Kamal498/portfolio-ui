@@ -51,23 +51,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section className="skills-section">
-          <h2 className="section-title">Skills & Expertise</h2>
-          <div className="skills-grid">
-            {skills.map((skillCategory, index) => (
-              <Card key={index} className="skill-category">
-                <h3>{skillCategory.category}</h3>
-                <div className="skill-items">
-                  {skillCategory.items.map((skill, idx) => (
-                    <span key={idx} className="skill-tag">{skill}</span>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
-
         {/* Experience Section */}
         <section className="experience-section">
           <h2 className="section-title">Work Experience</h2>
@@ -87,6 +70,23 @@ const About = () => {
                       <li key={idx}>{item}</li>
                     ))}
                   </ul>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Skills Section */}
+        <section className="skills-section">
+          <h2 className="section-title">Skills & Expertise</h2>
+          <div className="skills-grid">
+            {skills.map((skillCategory, index) => (
+              <Card key={index} className="skill-category">
+                <h3>{skillCategory.category}</h3>
+                <div className="skill-items">
+                  {skillCategory.items.map((skill, idx) => (
+                    <span key={idx} className="skill-tag">{skill}</span>
+                  ))}
                 </div>
               </Card>
             ))}

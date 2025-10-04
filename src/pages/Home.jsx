@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, Code, Sparkles, Zap } from 'lucide-react';
 import Button from '../components/common/Button';
 import Card from '../components/common/Card';
 import { usePersonalInfo, useProjects } from '../hooks/usePortfolioData';
@@ -25,34 +25,79 @@ const Home = () => {
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Hi, I'm <span className="highlight">{personalInfo.name}</span>
-          </h1>
-          <h2 className="hero-subtitle">{personalInfo.title}</h2>
-          <p className="hero-description">{personalInfo.bio}</p>
-          <div className="hero-actions">
-            <Link to="/projects">
-              <Button size="large">
-                View My Work <ArrowRight size={20} />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button variant="outline" size="large">
-                Get In Touch
-              </Button>
-            </Link>
+        <div className="hero-background">
+          <div className="floating-shape shape-1"></div>
+          <div className="floating-shape shape-2"></div>
+          <div className="floating-shape shape-3"></div>
+        </div>
+        
+        <div className="hero-container">
+          <div className="hero-content">
+            <div className="hero-badge">
+              <Sparkles size={16} />
+              <span>Available for opportunities</span>
+            </div>
+            
+            <h1 className="hero-title">
+              Hi, I'm <span className="highlight">{personalInfo.name}</span>
+            </h1>
+            <h2 className="hero-subtitle">
+              <span className="typing-effect">{personalInfo.title}</span>
+            </h2>
+            <p className="hero-description">{personalInfo.bio}</p>
+            
+            <div className="hero-stats">
+              <div className="stat-item">
+                <Code size={20} />
+                <div>
+                  <strong>5+</strong>
+                  <span>Years Experience</span>
+                </div>
+              </div>
+              <div className="stat-item">
+                <Zap size={20} />
+                <div>
+                  <strong>50+</strong>
+                  <span>Projects Completed</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="hero-actions">
+              <Link to="/projects">
+                <Button size="large">
+                  View My Work <ArrowRight size={20} />
+                </Button>
+              </Link>
+              <Link to="/contact">
+                <Button variant="outline" size="large">
+                  Get In Touch
+                </Button>
+              </Link>
+            </div>
+            
+            <div className="hero-social">
+              <a href={personalInfo.githubUrl} target="_blank" rel="noopener noreferrer" className="social-link">
+                <Github size={20} />
+              </a>
+              <a href={personalInfo.linkedinUrl} target="_blank" rel="noopener noreferrer" className="social-link">
+                <Linkedin size={20} />
+              </a>
+              <a href={`mailto:${personalInfo.email}`} className="social-link">
+                <Mail size={20} />
+              </a>
+            </div>
           </div>
-          <div className="hero-social">
-            <a href={personalInfo.githubUrl} target="_blank" rel="noopener noreferrer">
-              <Github size={24} />
-            </a>
-            <a href={personalInfo.linkedinUrl} target="_blank" rel="noopener noreferrer">
-              <Linkedin size={24} />
-            </a>
-            <a href={`mailto:${personalInfo.email}`}>
-              <Mail size={24} />
-            </a>
+          
+          <div className="hero-image">
+            <div className="image-wrapper">
+              <div className="image-glow"></div>
+              <img 
+                src={personalInfo.avatar || "https://ui-avatars.com/api/?name=" + encodeURIComponent(personalInfo.name) + "&size=400&background=667eea&color=fff&bold=true"}
+                alt={personalInfo.name}
+                className="profile-image"
+              />
+            </div>
           </div>
         </div>
       </section>

@@ -7,6 +7,15 @@ import './Contact.css';
 
 const Contact = () => {
   const { data: personalInfo, loading } = usePersonalInfo();
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const [submitted, setSubmitted] = useState(false);
 
   if (loading) {
     return (
@@ -19,14 +28,6 @@ const Contact = () => {
   }
 
   if (!personalInfo) return null;
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
