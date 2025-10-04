@@ -1,0 +1,96 @@
+.achievements {
+  padding-top: 80px;
+  min-height: 100vh;
+  background: #f9fafb;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.achievements-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.achievements-header h1 {
+  font-size: 3rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.achievements-header p {
+  font-size: 1.25rem;
+  color: #6b7280;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.achievement-card {
+  text-align: center;
+}
+
+.achievement-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+.achievement-card h3 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-card h4 {
+  font-size: 1.125rem;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.achievement-date {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.achievement-description {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements-header h1 {
+    font-size: 2rem;
+  }
+
+  .achievements-header p {
+    font-size: 1rem;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-icon {
+    font-size: 3rem;
+  }
+}
