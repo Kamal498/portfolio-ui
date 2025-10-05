@@ -4,6 +4,7 @@ import { ArrowLeft, Save } from 'lucide-react';
 import Button from '../components/common/Button';
 import RichTextEditor from '../components/blog/RichTextEditor';
 import useBlogStore from '../store/blogStore';
+import { usePersonalInfo } from '../hooks/usePortfolioData';
 import { htmlToMarkdown, markdownToHtml } from '../utils/contentConverter';
 import './BlogEditor.css';
 
@@ -11,6 +12,7 @@ const BlogEditor = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { getBlogById, addBlog, updateBlog } = useBlogStore();
+  const { data: personalInfo } = usePersonalInfo();
   
   const isEdit = Boolean(id);
   const existingBlog = isEdit ? getBlogById(parseInt(id)) : null;
@@ -19,7 +21,7 @@ const BlogEditor = () => {
     title: '',
     excerpt: '',
     content: '',
-    author: 'Your Name',
+    author: '',
     tags: '',
     readTime: '5 min read',
     published: true,
@@ -144,6 +146,7 @@ const BlogEditor = () => {
                 value={formData.author}
                 onChange={handleChange}
                 required
+                placeholder="Author name"
               />
             </div>
 
